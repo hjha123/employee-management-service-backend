@@ -51,4 +51,11 @@ public class EmployeeController {
     ResponseEntity<String> deleteEmployee(@PathVariable("id") long employeeId){
         return ResponseEntity.ok(employeeService.deleteEmployee(employeeId));
     }
+
+    @GetMapping("/getEmployeeByDeptId/{id}")
+    public ResponseEntity<List<EmployeeDto>> getEmployeesByDeptId(@PathVariable("id") long departmentId){
+        List<EmployeeDto> employeesByDepartmentId = employeeService.getEmployeesByDepartmentId(departmentId);
+
+        return ResponseEntity.ok(employeesByDepartmentId);
+    }
 }
